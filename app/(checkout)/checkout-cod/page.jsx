@@ -4,15 +4,25 @@ import { admin, adminDB } from "@/lib/firebase_admin";
 import Link from "next/link";
 
 const fetchCheckout = async (checkoutId) => {
-  const list = await adminDB
-    .collectionGroup("checkout_sessions_cod")
-    .where("id", "==", checkoutId)
-    .get();
-  if (list.docs.length === 0) {
-    throw new Error("Invalid Checkout ID");
+  try {
+    const list = await adminDB
+      .collectionGroup("checkout_sessions_cod")
+      .where("id", "==", checkoutId)
+      .get();
+
+    if (list.empty) {
+      console.error(`No matching documents for checkoutId: ${checkoutId}`);
+      throw new Error("Invalid Checkout ID");
+    }
+
+    return list.docs[0].data();
+  } catch (error) {
+    console.error("Error fetching checkout:", error.message, error.stack);
+    throw error;
   }
-  return list.docs[0].data();
 };
+
+
 
 const processOrder = async ({ checkout }) => {
   const order = await adminDB.doc(`orders/${checkout?.id}`).get();

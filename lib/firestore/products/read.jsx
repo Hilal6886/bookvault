@@ -9,16 +9,25 @@ import {
   query,
   startAfter,
   where,
+  orderBy,
 } from "firebase/firestore";
 import useSWRSubscription from "swr/subscription";
 
-export function useProducts({ pageLimit, lastSnapDoc }) {
+// Hook for paginated product fetching
+export function useProducts({ pageLimit, lastSnapDoc, categoryId }) {
   const { data, error } = useSWRSubscription(
-    ["products", pageLimit, lastSnapDoc],
-    ([path, pageLimit, lastSnapDoc], { next }) => {
+    ["products", pageLimit, lastSnapDoc, categoryId],
+    ([path, pageLimit, lastSnapDoc, categoryId], { next }) => {
       const ref = collection(db, path);
-      let q = query(ref, limit(pageLimit ?? 10));
 
+      let q = query(ref, limit(pageLimit ?? 10));
+      
+      // Add category filter and ordering if categoryId is provided
+      if (categoryId) {
+        q = query(ref, where("categoryId", "==", categoryId), orderBy("timestampCreate", "desc"));
+      }
+
+      // Add pagination if lastSnapDoc is provided
       if (lastSnapDoc) {
         q = query(q, startAfter(lastSnapDoc));
       }
@@ -50,6 +59,7 @@ export function useProducts({ pageLimit, lastSnapDoc }) {
   };
 }
 
+// Hook to fetch a single product by ID
 export function useProduct({ productId }) {
   const { data, error } = useSWRSubscription(
     ["products", productId],
@@ -72,6 +82,7 @@ export function useProduct({ productId }) {
   };
 }
 
+// Hook to fetch multiple products by their IDs
 export function useProductsByIds({ idsList }) {
   const { data, error } = useSWRSubscription(
     ["products", idsList],

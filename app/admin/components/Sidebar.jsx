@@ -31,12 +31,12 @@ export default function Sidebar() {
       icon: <PackageOpen className="h-5 w-5" />,
     },
     {
-      name: "Categories",
+      name: " Categories",
       link: "/admin/categories",
       icon: <Layers2 className="h-5 w-5" />,
     },
     {
-      name: "Brands",
+      name: "Authors",
       link: "/admin/brands",
       icon: <Cat className="h-5 w-5" />,
     },
@@ -70,7 +70,7 @@ export default function Sidebar() {
     <section className="sticky top-0 flex flex-col gap-10 bg-white border-r px-5 py-3 h-screen overflow-hidden w-[260px] z-50">
       <div className="flex justify-center py-4">
         <Link href={`/`}>
-          <img className="h-8" src="/logo.png" alt="" />
+         <h1 className="font-bold text-xl">BOOK VAULT</h1>
         </Link>
       </div>
       <ul className="flex-1 h-full overflow-y-auto flex flex-col gap-4">

@@ -55,7 +55,7 @@ export default function Collections({ collections }) {
         )?.map((collection) => {
           return (
             <div className="px-2">
-              <div className="flex gap-4 bg-gradient-to-tr to-[#d9e2f1] from-[#cce7f5] p-7 w-full rounded-xl h-full">
+              <div className="flex gap-4 bg-gradient-to-tr to-[#d9e2f1] from-[#cce7f5] p-5 w-full rounded-xl h-full">
                 <div className="w-full flex flex-col gap-2">
                   <div className="flex flex-col gap-4">
                     <h1 className="md:text-lg text-base font-semibold">
@@ -75,7 +75,7 @@ export default function Collections({ collections }) {
                 </div>
                 <div className="w-full">
                   <img
-                    className="h-[4rem] md:h-[9rem]"
+                    className="h-[8rem] md:h-[14rem]"
                     src={collection?.imageURL}
                     alt={collection?.title}
                   />
