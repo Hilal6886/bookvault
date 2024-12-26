@@ -10,7 +10,7 @@ export default function ProductsGridView({ products }) {
   return (
     <section className="w-full flex justify-center">
       <div className="flex flex-col gap-5 max-w-[900px] p-5">
-        <h1 className="text-center font-semibold text-lg">Products</h1>
+        <h1 className="text-center font-semibold text-lg">Books</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
           {products?.map((item) => {
             return <ProductCard product={item} key={item?.id} />;
@@ -27,7 +27,7 @@ export function ProductCard({ product }) {
       <div className="relative w-full">
         <img
           src={product?.featureImageURL}
-          className="rounded-lg h-48 w-full object-cover"
+          className="rounded-lg h-full w-full object-cover"
           alt={product?.title}
         />
         <div className="absolute top-1 right-1">
