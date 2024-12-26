@@ -12,7 +12,7 @@ export default function BasicDetails({ data, handleData }) {
 
       <div className="flex flex-col gap-1">
         <label className="text-gray-500 text-xs" htmlFor="product-title">
-          Product Name <span className="text-red-500">*</span>{" "}
+          Book Name <span className="text-red-500">*</span>{" "}
         </label>
         <input
           type="text"
@@ -51,7 +51,7 @@ export default function BasicDetails({ data, handleData }) {
 
       <div className="flex flex-col gap-1">
         <label className="text-gray-500 text-xs" htmlFor="product-brand">
-          Brand <span className="text-red-500">*</span>{" "}
+          Author <span className="text-red-500">*</span>{" "}
         </label>
         <select
           type="text"
@@ -64,7 +64,7 @@ export default function BasicDetails({ data, handleData }) {
           className="border px-4 py-2 rounded-lg w-full outline-none"
           required
         >
-          <option value="">Select Brand</option>
+          <option value="">Select Author</option>
           {brands?.map((item) => {
             return (
               <option value={item?.id} key={item?.id}>
@@ -160,7 +160,7 @@ export default function BasicDetails({ data, handleData }) {
           className="text-gray-500 text-xs"
           htmlFor="product-is-featured-product"
         >
-          Is Featured Product <span className="text-red-500">*</span>{" "}
+          Is Featured Book <span className="text-red-500">*</span>{" "}
         </label>
         <select
           type="number"

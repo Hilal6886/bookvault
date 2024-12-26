@@ -9,10 +9,13 @@ import Slider from "react-slick";
 export default function Collections({ collections }) {
   var settings = {
     dots: true,
-    infinite: false,
+    infinite: true, // Enable infinite loop for auto-slide
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 2,
+    autoplay: true, // Enable auto-slide
+    autoplaySpeed: 3000, // Set interval time in milliseconds
+    pauseOnHover: true, // Pause auto-slide on hover
     initialSlide: 0,
     responsive: [
       {
@@ -54,7 +57,7 @@ export default function Collections({ collections }) {
           : collections
         )?.map((collection) => {
           return (
-            <div className="px-2">
+            <div className="px-2" key={collection.id}>
               <div className="flex gap-4 bg-gradient-to-tr to-[#d9e2f1] from-[#cce7f5] p-5 w-full rounded-xl h-full">
                 <div className="w-full flex flex-col gap-2">
                   <div className="flex flex-col gap-4">
@@ -75,7 +78,7 @@ export default function Collections({ collections }) {
                 </div>
                 <div className="w-full">
                   <img
-                    className="h-[8rem] md:h-[14rem]"
+                    className="h-[10rem] md:h-[14rem]"
                     src={collection?.imageURL}
                     alt={collection?.title}
                   />

@@ -12,7 +12,7 @@ export default function AdminButton() {
   }
   return (
     <Link href={"/admin"}>
-      <button className="text-xs font-semibold">Admin</button>
+      <button className="text-sm px-4 py-2 w-full text-left hover:bg-gray-50 rounded-lg">Admin</button>
     </Link>
   );
 }

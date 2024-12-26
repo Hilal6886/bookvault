@@ -44,6 +44,9 @@ export default function Brands({ brands }) {
 
   return (
     <div className="flex flex-col gap-8 justify-center overflow-hidden md:p-10 p-5">
+                  <h1 className="text-center font-sectionTitle font-semibold  mb-4 text-xl">
+          Top Authors
+        </h1>
       <Slider {...settings}>
         {(brands?.length <= 2
           ? [...brands, ...brands, ...brands]
@@ -51,6 +54,7 @@ export default function Brands({ brands }) {
         )?.map((brand) => {
           return (
             <div className="px-2">
+   
               <div className="flex flex-col gap-2 items-center justify-center">
                 <div className="h-20 rounded-full md:p-1 p-0 border overflow-hidden">
                   <img

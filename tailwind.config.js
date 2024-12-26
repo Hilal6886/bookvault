@@ -14,6 +14,10 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        sectionTitle: ['"Libre Franklin"', 'serif'], // Elegant serif font for titles
+      // Clean sans-serif font for body text
+      },
     },
   },
   darkMode: "class",

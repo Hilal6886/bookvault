@@ -21,7 +21,7 @@ export default function Header() {
     <nav className="sticky top-0 z-50 bg-white bg-opacity-90 backdrop-blur-2xl py-3 px-4 md:py-4 md:px-16 border-b flex items-center justify-between">
       {/* Logo */}
       <Link href="/">
-        <h1 className="text-xl font-bold">BOOK VAULT</h1>
+        <h1 className="text-sm font-bold">BOOK VAULT</h1>
       </Link>
 
       {/* Desktop and Mobile Menu (Visible for both) */}
